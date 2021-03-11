@@ -1,7 +1,22 @@
 import 'package:TD/models/Character.dart';
 import 'package:TD/models/Skill.dart';
 
+
 List<Character> characters = [
+  Character("001", "Han Droid", Skill(Skill.strength, 0), Skill(Skill.speed, 4), Skill(Skill.cleverness, 4), Skill(Skill.intelligence, 4)),
+  Character("002", "Garbagecol Hector", Skill(Skill.strength, 5),Skill(Skill.speed, 1), Skill(Skill.cleverness, 1), Skill(Skill.intelligence, 5)),
+  Character("003", "Algo Ritm", Skill(Skill.strength, 5), Skill(Skill.speed, 1), Skill(Skill.cleverness, 1), Skill(Skill.intelligence, 5)),
+  Character("004", "Foobar Baz", Skill(Skill.strength, 5), Skill(Skill.speed, 4), Skill(Skill.cleverness, 2), Skill(Skill.intelligence, 1)),
+  Character("005", "Joh Ndoe", Skill(Skill.strength, 4), Skill(Skill.speed, 3), Skill(Skill.cleverness, 3), Skill(Skill.intelligence, 2)),
+  Character("006", "Rid Mi", Skill(Skill.strength, 3), Skill(Skill.speed, 3), Skill(Skill.cleverness, 3), Skill(Skill.intelligence, 3)),
+  Character("007", "Asyn Kawait", Skill(Skill.strength, 4), Skill(Skill.speed, 5), Skill(Skill.cleverness, 2), Skill(Skill.intelligence, 1)),
+  Character("008", "Hel Oworld", Skill(Skill.strength, 5), Skill(Skill.speed, 5), Skill(Skill.cleverness, 1), Skill(Skill.intelligence, 1)),
+  Character("009", "A Pachi", Skill(Skill.strength, 5), Skill(Skill.speed, 5), Skill(Skill.cleverness, 2), Skill(Skill.intelligence, 0)),
+  Character("010", "Bin Harry", Skill(Skill.strength, 5), Skill(Skill.speed, 4), Skill(Skill.cleverness, 0), Skill(Skill.intelligence, 3)),
+  Character("011", "Cee Sharp", Skill(Skill.strength, 3), Skill(Skill.speed, 5), Skill(Skill.cleverness, 2), Skill(Skill.intelligence, 2)),
+  Character("012", "Jay Son", Skill(Skill.strength, 5), Skill(Skill.speed, 3), Skill(Skill.cleverness, 3), Skill(Skill.intelligence, 1)),
+  Character("013", "Forloop", Skill(Skill.strength, 5), Skill(Skill.speed, 3), Skill(Skill.cleverness, 3), Skill(Skill.intelligence, 1)),
+  Character("014", "Bakdor", Skill(Skill.strength, 5), Skill(Skill.speed, 3), Skill(Skill.cleverness, 2), Skill(Skill.intelligence, 2)),
   Character("015", "Bakdor", Skill(Skill.strength,5),Skill(Skill.speed,3), Skill( Skill.cleverness,2), Skill(Skill.intelligence,2)),
   Character("016", "Single Tone", Skill(Skill.strength,5),Skill(Skill.speed,3), Skill( Skill.cleverness,2), Skill(Skill.intelligence,2)),
   Character("017", "Ifelse", Skill(Skill.strength,5),Skill(Skill.speed,3), Skill( Skill.cleverness,2), Skill(Skill.intelligence,2)),

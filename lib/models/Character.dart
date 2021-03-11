@@ -3,6 +3,8 @@ import 'package:TD/models/Skill.dart';
 class Character {
   final String uuid;
   final String name;
+  bool selected = false;
+  bool autoSelected = false;
   String image ="";
   Skill strength, speed, cleverness, intelligence;
 

@@ -18,7 +18,6 @@ class _CharacterPreviewState extends State<CharacterPreview>
 
   void initState() {
     super.initState();
-
     color = Colors.red[400];
   }
   

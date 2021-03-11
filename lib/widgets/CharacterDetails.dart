@@ -83,9 +83,25 @@ class _CharacterDetailsState extends State<CharacterDetails>
                     color : Colors.red
                   )
                 ),
+                ElevatedButton(
+                  onPressed: () {
+                    widget.character.selected = true;
+                  },
+                  child: 
+                    Text('Add to team',
+                    style: TextStyle(
+                      fontFamily: 'Knewave',
+                      fontSize: 20,
+                      color : Colors.red
+                    )
+                  ),
+                  style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                  )
+                )
               ],
             )
-          )
+          ),
         ],
       )
     );

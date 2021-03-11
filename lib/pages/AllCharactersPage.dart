@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:TD/models/Character.dart';
+import 'package:TD/models/Player.dart';
 import 'package:TD/widgets/CharacterMaster.dart';
 import 'package:TD/widgets/CharacterDetails.dart';
 import 'package:TD/data/characters.dart' as staticData;
 
 
 class AllCharactersPage extends StatefulWidget {
-  AllCharactersPage({Key key}) : super(key: key);
+
+  AllCharactersPage({Key key, this.player}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -16,7 +18,7 @@ class AllCharactersPage extends StatefulWidget {
   // case the title) provided by the parent (in this case the App widget) and
   // used by the build method of the State. Fields in a Widget subclass are
   // always marked "final".
-
+  final Player player;
   @override
   _AllCharactersPageState createState() => _AllCharactersPageState();
 }
@@ -73,6 +75,21 @@ class _AllCharactersPageState extends State<AllCharactersPage>
           ],
         ),
       ),
+      bottomNavigationBar: BottomNavigationBar
+      (
+        items: const <BottomNavigationBarItem>
+        [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.list),
+            label: 'Characters'
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'My Team',
+          )
+        ],
+        selectedItemColor : Colors.red[700]
+      )
     );
   }
 }
