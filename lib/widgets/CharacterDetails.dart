@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:TD/models/Character.dart';
+import 'package:TD/models/Player.dart';
 import 'package:flutter/rendering.dart';
 
 class CharacterDetails extends StatefulWidget
 {
-  const CharacterDetails({Key key, this.character}) : super(key:key);
+  const CharacterDetails({Key key, this.character, this.player}) : super(key:key);
   final Character character;
-
+  final Player player;
   @override
   _CharacterDetailsState createState() => _CharacterDetailsState();
 }
 class _CharacterDetailsState extends State<CharacterDetails>
 {
+  bool _selected;
   @override
   Widget build(BuildContext context)
   {
@@ -85,7 +87,15 @@ class _CharacterDetailsState extends State<CharacterDetails>
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    widget.character.selected = true;
+                    _selected = widget.player.team.addCharacter(widget.character);
+                    (_selected)
+                    ? ScaffoldMessenger.of(context).showSnackBar(SnackBar( //Affichage de la Snackbar
+                      content: Text("Character has been added"),
+                    ))
+                    :ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text("There are already 5 characters in your team")
+                    ));
+                    //widget.character.selected = true;
                   },
                   child: 
                     Text('Add to team',

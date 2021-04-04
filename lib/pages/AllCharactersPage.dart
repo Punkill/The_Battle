@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:TD/models/Character.dart';
 import 'package:TD/models/Player.dart';
+import 'package:TD/models/Team.dart';
 import 'package:TD/widgets/CharacterMaster.dart';
 import 'package:TD/widgets/CharacterDetails.dart';
 import 'package:TD/data/characters.dart' as staticData;
+import 'package:TD/pages/TeamPage.dart';
 
 
 class AllCharactersPage extends StatefulWidget {
@@ -18,6 +20,7 @@ class AllCharactersPage extends StatefulWidget {
   // case the title) provided by the parent (in this case the App widget) and
   // used by the build method of the State. Fields in a Widget subclass are
   // always marked "final".
+  static const String routeName = "/";
   final Player player;
   @override
   _AllCharactersPageState createState() => _AllCharactersPageState();
@@ -25,6 +28,7 @@ class AllCharactersPage extends StatefulWidget {
 
 class _AllCharactersPageState extends State<AllCharactersPage>
 {
+  int _selectedIndex = 0;
   List<Character> _characters;
   Character _selectedCharacter;
   void _onCharacterSelect(Character character)
@@ -38,16 +42,24 @@ class _AllCharactersPageState extends State<AllCharactersPage>
   Widget _getCharacterDetails()
   {
     if(this._selectedCharacter !=null)
-      return CharacterDetails(character : this._selectedCharacter);
+      return CharacterDetails(character : this._selectedCharacter, player: widget.player);
     else
       return Container();
   }
+
   _AllCharactersPageState()
   {
     _characters = staticData.characters;
   }
 
-
+  void _onTappedBottomNavigation(int index)
+  {
+    setState(() {
+      _selectedIndex = index;
+    });
+    if(_selectedIndex==1)
+      Navigator.pushReplacementNamed(context, TeamPage.routeName, arguments: widget.player);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,7 +81,7 @@ class _AllCharactersPageState extends State<AllCharactersPage>
           children: <Widget>[
             SizedBox(
               width: double.infinity,
-              child :_getCharacterDetails() //_debug(_selectedCharacter)
+              child :_getCharacterDetails()
             ),
             Expanded(child : CharacterMaster(characters: _characters, onSelected: this._onCharacterSelect))
           ],
@@ -88,7 +100,9 @@ class _AllCharactersPageState extends State<AllCharactersPage>
             label: 'My Team',
           )
         ],
-        selectedItemColor : Colors.red[700]
+        currentIndex: _selectedIndex,
+        selectedItemColor : Colors.red[700],
+        onTap : _onTappedBottomNavigation
       )
     );
   }

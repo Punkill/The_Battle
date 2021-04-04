@@ -6,23 +6,48 @@ class Team{
   final String uuid;
   //final Player player;
   String name = "My Team";
-  List<Character> characters = List();
+  List<Character> characters;
 
-  void _randomSelectCharacter()
+  List<Character> _randomSelectCharacter()
   {
-    for(var i=0;i<=1;i++)
+    List<Character> randomCharacterList = List(2);
+    Random random = new Random();
+    int random1 = random.nextInt(staticData.characters.length);
+    int random2 = random.nextInt(staticData.characters.length);
+    Character character1 = staticData.characters[random1];
+
+
+    while(random1 == random2)
     {
-      var _num = Random().nextInt(staticData.characters.length);
-      print(_num);
-      print(staticData.characters.length);
-      this.characters.add(staticData.characters[_num]);
-      /*this.characters[_num].selected = true;
-      this.characters[_num].autoSelected = true;*/
-      print(this.characters[_num].selected);
+      random2 = random.nextInt(staticData.characters.length);
     }
+    Character character2 = staticData.characters[random2];
+
+    character1.selected = true;
+    character2.selected = true;
+    character1.autoSelected = true;
+    character2.autoSelected = true;
+
+    randomCharacterList[0] = character1;
+    randomCharacterList[1] = character2;
+
+    return randomCharacterList;
+  }
+
+  bool addCharacter(Character characterSelected)
+  {
+    if(characters.length < 5 )
+    {
+      characters.insert(0, characterSelected);
+      characterSelected.selected = true;
+      return true;
+    }
+    else
+      return false;
   }
   Team(this.uuid)
   {
-    _randomSelectCharacter();
+    characters = List();
+    characters.addAll(_randomSelectCharacter());
   }
 }

@@ -24,7 +24,27 @@ class _CharacterPreviewState extends State<CharacterPreview>
   @override
   Widget build(BuildContext context)
   {
-    return Card(
+    return (widget.character.selected)
+    ?Card(
+      color : Colors.green[500],
+      child : ListTile(
+        leading: Padding(
+          padding: EdgeInsets.all(10),
+          child: Image(
+            image: AssetImage(widget.character.imagePath()),
+            width:100
+          )
+        ),
+        title: Text(
+          widget.character.name,
+          style: TextStyle(
+            fontFamily: 'knewave', fontSize: 20, color: Colors.white
+          )
+        )
+      )
+    )
+    //Carte personnage à séléctionner
+    :Card(
       color: color,
       child: ListTile(
         onTap:()
